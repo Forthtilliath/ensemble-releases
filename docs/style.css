@@ -1,0 +1,189 @@
+/* Thème « Velours » de l'app : noir vineux, surfaces prune, accent framboise. */
+@font-face { font-family: 'Cormorant'; src: url('fonts/cormorant-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Cormorant'; src: url('fonts/cormorant-500-italic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('fonts/manrope-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('fonts/manrope-600.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+
+:root {
+  --bg: #140a0e;
+  --surface: #1e1016;
+  --surface2: #2a1620;
+  --border: #3d2230;
+  --text: #fbeef2;
+  --text-dim: #d4b3bf;
+  --text-faint: #9c7686;
+  --accent: #ff5c8a;
+  --accent-tint: rgba(255, 92, 138, 0.14);
+  --gradient: linear-gradient(135deg, #e0285f, #9e1238);
+  --display: 'Cormorant', Georgia, serif;
+  --body: 'Manrope', system-ui, sans-serif;
+  --width: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.0625rem/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); }
+strong { font-weight: 600; color: var(--text); }
+code { font-size: 0.9em; background: var(--surface2); padding: 0.1em 0.4em; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(2rem, 4vw, 2.75rem); text-align: center; margin-bottom: 1.25rem; }
+h3 { font-size: 1.5rem; }
+
+/* Halo de braise derrière le haut de page, comme dans l'app. */
+.glow {
+  position: absolute;
+  top: -260px;
+  right: -200px;
+  width: min(1100px, 140vw);
+  height: 1100px;
+  background: radial-gradient(closest-side, rgba(158, 18, 56, 0.55), rgba(158, 18, 56, 0.18) 55%, transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+.brand { display: flex; align-items: center; gap: 0.7rem; font: 600 1.75rem var(--display); margin: 0 0 2.5rem; }
+.brand img { border-radius: 12px; }
+.brand.small { font-size: 1.35rem; justify-content: center; margin: 0 0 0.5rem; }
+.brand.small img { border-radius: 8px; }
+.kicker { font: italic 500 1.5rem var(--display); color: var(--accent); margin: 0 0 0.4rem; }
+h1 { font-size: clamp(2.4rem, 5.5vw, 3.9rem); margin-bottom: 1.25rem; }
+.lead { color: var(--text-dim); font-size: 1.15rem; margin: 0 0 2rem; max-width: 34rem; }
+
+.cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0 0 1rem; }
+.cta.center { justify-content: center; margin-top: 2rem; }
+.button {
+  display: inline-block;
+  padding: 0.95rem 1.6rem;
+  border-radius: 16px;
+  background: var(--gradient);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 30px -12px rgba(224, 40, 95, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -12px rgba(224, 40, 95, 0.85); }
+.button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.button.ghost { background: var(--surface); border: 1px solid var(--border); box-shadow: none; color: var(--text); }
+.meta { color: var(--text-faint); font-size: 0.95rem; margin: 0 0 1.5rem; }
+.adult { display: flex; gap: 0.7rem; align-items: center; color: var(--text-dim); font-size: 0.92rem; margin: 0; max-width: 34rem; }
+.adult span {
+  flex: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-weight: 600;
+}
+
+/* Captures dans un cadre de téléphone. */
+.phone { margin: 0; }
+.phone img {
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.9), 0 0 0 8px var(--surface);
+}
+.hero-phone { max-width: 320px; justify-self: center; transform: rotate(2deg); }
+
+main section { max-width: var(--width); margin: 0 auto; padding: 4rem 1.5rem; }
+.section-lead { text-align: center; color: var(--text-dim); max-width: 40rem; margin: 0 auto 2.5rem; }
+
+.steps ol { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.steps li, .pack, .features li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.6rem;
+}
+.steps p, .pack p, .features p { color: var(--text-dim); margin: 0.6rem 0 0; }
+.num {
+  display: inline-grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.shots figcaption { text-align: center; color: var(--text-dim); font-size: 0.95rem; margin-top: 1.1rem; }
+
+.packs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.pack.free { border-color: var(--accent); background: linear-gradient(180deg, var(--accent-tint), var(--surface) 70%); }
+.tag {
+  font: 600 0.75rem var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+.note { text-align: center; color: var(--text-faint); font-size: 0.95rem; margin: 2rem auto 0; max-width: 40rem; }
+
+.features { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.features h3 { font-size: 1.35rem; }
+
+.install-steps { max-width: 40rem; margin: 2rem auto 0; padding: 0; list-style: none; counter-reset: step; }
+.install-steps li { counter-increment: step; position: relative; padding: 0 0 1.5rem 3.4rem; color: var(--text-dim); }
+.install-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -0.1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #fff;
+  font-weight: 600;
+}
+
+.faq details { max-width: 44rem; margin: 0 auto 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; }
+.faq summary { cursor: pointer; padding: 1.1rem 1.4rem; font-weight: 600; list-style: none; position: relative; padding-right: 3rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; position: absolute; right: 1.4rem; color: var(--accent); font-size: 1.3rem; line-height: 1; }
+.faq details[open] summary::after { content: '–'; }
+.faq details p { margin: 0; padding: 0 1.4rem 1.2rem; color: var(--text-dim); }
+
+footer { text-align: center; color: var(--text-faint); padding: 3rem 1.5rem 4rem; border-top: 1px solid var(--border); font-size: 0.95rem; }
+footer p { margin: 0.3rem 0; }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 2rem; gap: 2.5rem; }
+  .hero-phone { max-width: 260px; }
+  .steps ol, .features { grid-template-columns: 1fr; }
+  .packs { grid-template-columns: 1fr 1fr; }
+  .shots { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 0 1rem; gap: 1.25rem; }
+  .shots figure { flex: 0 0 62%; scroll-snap-align: center; }
+}
+@media (max-width: 520px) {
+  .packs { grid-template-columns: 1fr; }
+  .cta .button { flex: 1 1 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button { transition: none; }
+}
